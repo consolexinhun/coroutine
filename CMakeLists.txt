@@ -1,6 +1,15 @@
 cmake_minimum_required(VERSION 3.16)
 project(libgo)
 
+find_package(Boost REQUIRED COMPONENTS 
+    system 
+    filesystem
+)
+
+include_directories(
+    ${Boost_INCLUDE_DIRS}
+)
+
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} SRC_LIST)
 
 foreach(var ${SRC_LIST})
